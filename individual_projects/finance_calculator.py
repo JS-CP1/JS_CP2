@@ -139,14 +139,14 @@ def sale_price():
     cost = input("How much does the item originally cost: ").strip().strip("$")
     while True:
         try:
-            cost = int(cost)
+            cost = float(cost)
             break
         except:
             cost = input("That was not a valid option. Please try again\n").strip().strip("$")
     discount = input("What percent is the discount: ").strip().strip("%")
     while True:
         try:
-            discount = int(discount)
+            discount = float(discount)
             break
         except:
             discount = input("That was not a valid option. Please try again\n").strip().strip("%")
@@ -173,23 +173,25 @@ def tip():
     result = bill + (bill * (tip / 100))
     print(f"With the original bill being ${bill:.2f}, and the {tip}% tip being ${(bill * (tip / 100)):.2f}, your total is now ${result:.2f}")
 
-print("\033c", end="")
-while True:
-    calc = input("Enter the number to select an option\n 1. Savings Time Calculator\n 2. Compound Interest Calculator\n 3. Budget Allocator\n 4. Sale Price Calculator\n 5. Tip Calculator\n 6. Exit\n")
-    if calc == "6":
+def main():
+    while True:
+        calc = input("Enter the number to select an option\n 1. Savings Time Calculator\n 2. Compound Interest Calculator\n 3. Budget Allocator\n 4. Sale Price Calculator\n 5. Tip Calculator\n 6. Exit\n")
+        if calc == "6":
+            print("\033c", end="")
+            print("Thank you for using this program.")
+            break
+        while calc != "1" and calc != "2" and calc != "3" and calc != "4" and calc != "5":
+            calc = input("That was not a valid option. Please try again\n")
         print("\033c", end="")
-        print("Thank you for using this program.")
-        break
-    while calc != "1" and calc != "2" and calc != "3" and calc != "4" and calc != "5":
-        calc = input("That was not a valid option. Please try again\n")
-    print("\033c", end="")
-    if calc == "1":
-        savings()
-    elif calc == "2":
-        cic()
-    elif calc == "3":
-        budget()
-    elif calc == "4":
-        sale_price()
-    else:
-        tip()
+        if calc == "1":
+            savings()
+        elif calc == "2":
+            cic()
+        elif calc == "3":
+            budget()
+        elif calc == "4":
+            sale_price()
+        else:
+            tip()
+print("\033c", end="")
+main()
