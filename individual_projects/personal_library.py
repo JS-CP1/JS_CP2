@@ -56,15 +56,15 @@ def view(songs):
 #       print the title and artist of each song
         print(f" {song["name"]}, {song["artist"]}")
 #   ask user if they want to leave and keep asking until not no
-    leave = input("Would you like to leave? (y/n) ")
+    leave = input("Would you like to leave to menu? (y/n) ")
     while leave != "y" and leave != "yes":
-        leave = input("Would you like to leave? (y/n) ")
+        leave = input("Would you like to leave to menu? (y/n) ")
 # define add function with parameter songs
 def add(songs):
 #   ask user for the song title
-    name = input("What is the song called? ").strip().title()
+    name = input("What is the song called? ").strip()
 #   ask user for the song artist
-    artist = input("Who is the artist? ").strip().title()
+    artist = input("Who is the artist? ").strip()
 #   create a new song dictionary with that information
     new_song = {"name": name, "artist": artist}
 #   append the new song dictionary to songs
@@ -72,9 +72,9 @@ def add(songs):
 #   print a confirmation message
     print("Your song has been added.")
 #   ask user if they want to leave and keep asking until not no
-    leave = input("Would you like to leave? (y/n) ")
+    leave = input("Would you like to leave to menu? (y/n) ")
     while leave != "y" and leave != "yes":
-        leave = input("Would you like to leave? (y/n) ")
+        leave = input("Would you like to leave to menu? (y/n) ")
 #   return songs
     return songs
 # define search function with parameter songs
@@ -85,47 +85,55 @@ def search(songs):
     count = 0
     for song in songs:
 #       if user input in song name or artist
-        if search in song["name"] or song["artist"]:
+        if search in song["name"] or search in song["artist"]:
 #           print that song
-            print(f"{song["name"]}, {song["artist"]}")
-    count += 1
+            print(f"{song['name']}, {song['artist']}")
+            count += 1
 #   if no songs matched
     if count == 0:
 #       print a message saying nothing was found
         print("No song with that search was found.")
 #   ask user if they want to leave and keep asking until not no
-    leave = input("Would you like to leave? (y/n) ")
+    leave = input("Would you like to leave to menu? (y/n) ")
     while leave != "y" and leave != "yes":
-        leave = input("Would you like to leave? (y/n) ")
+        leave = input("Would you like to leave to menu? (y/n) ")
 #   return songs
     return songs
 # define remove function with parameter songs
 def remove(songs):
 #   display all songs as a numbered list (index + 1)
     for song in songs:
-        print(f"{songs.index(song)}, {song["name"]}")
+        print(f"{int(songs.index(song))+1}, {song["name"]}")
 #   ask user for the number of the song they want to remove
-    number = input("What number song do you want to remove? ")
+    number = input("What number song do you want to remove? ").strip()
+    while True:
+        try:
+            number = int(number)
+            break
+        except:
+            number = input("That was not a valid option. Please try again: ").strip()
 #   remove the song at that number - 1 from songs
-    songs.remove(songs[number - 1])
+    songs.remove(songs[int(number) - 1])
 #   print a confirmation message
     print("Your song has been removed. ")
 #   ask user if they want to leave and keep asking until not no
-    leave = input("Would you like to leave? (y/n) ")
+    leave = input("Would you like to leave to menu? (y/n) ")
     while leave != "y" and leave != "yes":
-        leave = input("Would you like to leave? (y/n) ")
+        leave = input("Would you like to leave to menu? (y/n) ")
 #   return songs
     return songs
 # define main function
 def main():
 #   print introduction explaining what the program does
-    print("stuff")
+    print("Welcome to the program, This is a song controller that allows you to view, add, remove, and search through your songs.")
 #   always loop:
     while True:
+        print("\033c", end="")
 #       ask user for their menu choice
-        menu = input("options")
+        menu = input("What would you like to do\n 1. View songs\n 2. Add a song\n 3. Remove a song\n 4. Search for a song\n 5. Close Program\n")
         while menu == "1" and menu == "2" and menu == "3" and menu == "4" and menu == "5":
-            menu = input("options but again")
+            menu = input("That was not an option. Try again: ")
+        print("\033c", end="")
 #       if choice is 1
         if menu == "1":
 #           call view function
