@@ -17,23 +17,49 @@
 import random
 # create generate function
 def generate():
-#   ask them specifying questions and define lists of each of those characters
-    length = input("How long should the password be: ")
-    lowers = input("Should the password have lowercase letters (y/n): ")
-    lowercases = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-    uppers = input("Should the password have uppercase letters (y/n): ")
-    uppercases = ["A", "B", "C", "D", "E", "F", "G","H", "I", "J", "K", "L", "M","N", "O", "P", "Q", "R", "S", "T","U", "V", "W", "X", "Y", "Z"]
-    numbers = input("Should the password have numbers letters (y/n): ")
-    numberchars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    specials = input("Should the password have special characters letters (y/n): ")
-    specialchars = ["!", "\\", "#", "$", "%", "&", "'", "(", ")", "*","+", ",", "-", ".", "/", ":", ";", "<", "=", ">","?", "@", "[", "\\", "]", "^", "_", "`", "{", "|","}", "~"]
-#   repeat 4 times:
-    for i in range(4):
-#       generate a password from the lists
-        pass
-#       append that password to a list of all the passwords
-#   print passwords
+    def ask(question):
+        result = input(f"{question}")
+        while result != "y" and result != "n":
+            result = input("That was not a valid input. Try again: ")
+        return result
+    possibles = []
+    passwords = []
 
+#   ask them specifying questions and define lists of each of those characters
+    length = input("How long should the password be: ").strip()
+    while True:
+        try:
+            length = int(length)
+            break
+        except:
+            length = input("Please choose a valid number: ")
+    lowers = ask("Should the password have lowercase letters (y/n): ").strip().lower()
+    if lowers == "y":
+        possibles.extend(["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"])
+    uppers = ask("Should the password have uppercase letters (y/n): ").strip().lower()
+    if uppers == "y":
+        possibles.extend(["A", "B", "C", "D", "E", "F", "G","H", "I", "J", "K", "L", "M","N", "O", "P", "Q", "R", "S", "T","U", "V", "W", "X", "Y", "Z"])
+    numbers = ask("Should the password have numbers letters (y/n): ").strip().lower()
+    if numbers == "y":
+        possibles.extend(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])
+    specials = ask("Should the password have special characters letters (y/n): ").strip().lower()
+    if specials == "y":
+        possibles.extend(["!", '"', "#", "$", "%", "&", "'", "(", ")", "*","+", ",", "-", ".", "/", ":", ";", "<", "=", ">","?", "@", "[", "\\", "]", "^", "_", "`", "{", "|","}", "~"])
+    
+    if lowers != "y" and uppers != "y" and numbers != "y" and specials != "y":
+        print("Please choose at least 1 category.")
+        return
+    
+#   repeat 4 times:
+    for _ in range(4):
+        password = ""
+#       generate a password from the lists
+        for _ in range(length):
+            password += random.choice(possibles)
+#       append that password to a list of all the passwords
+        passwords.append(password)
+#   print passwords
+    print(f"1. {passwords[0]}\n2. {passwords[1]}\n3. {passwords[2]}\n4. {passwords[3]}")
 # create main function
 def main():
 #   always loop
@@ -49,3 +75,4 @@ def main():
         else:
             print("Thank you for using this program.")
             break
+main()
