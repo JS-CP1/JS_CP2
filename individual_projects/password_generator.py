@@ -18,9 +18,9 @@ import random
 # create generate function
 def generate():
     def ask(question):
-        result = input(f"{question}")
+        result = input(f"{question}").strip().lower()
         while result != "y" and result != "n":
-            result = input("That was not a valid input. Try again: ")
+            result = input("That was not a valid input. Try again: ").strip().lower()
         return result
     possibles = []
     passwords = []
@@ -33,16 +33,16 @@ def generate():
             break
         except:
             length = input("Please choose a valid number: ")
-    lowers = ask("Should the password have lowercase letters (y/n): ").strip().lower()
+    lowers = ask("Should the password have lowercase letters (y/n): ")
     if lowers == "y":
         possibles.extend(["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"])
-    uppers = ask("Should the password have uppercase letters (y/n): ").strip().lower()
+    uppers = ask("Should the password have uppercase letters (y/n): ")
     if uppers == "y":
         possibles.extend(["A", "B", "C", "D", "E", "F", "G","H", "I", "J", "K", "L", "M","N", "O", "P", "Q", "R", "S", "T","U", "V", "W", "X", "Y", "Z"])
-    numbers = ask("Should the password have numbers letters (y/n): ").strip().lower()
+    numbers = ask("Should the password have numbers letters (y/n): ")
     if numbers == "y":
         possibles.extend(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])
-    specials = ask("Should the password have special characters letters (y/n): ").strip().lower()
+    specials = ask("Should the password have special characters letters (y/n): ")
     if specials == "y":
         possibles.extend(["!", '"', "#", "$", "%", "&", "'", "(", ")", "*","+", ",", "-", ".", "/", ":", ";", "<", "=", ">","?", "@", "[", "\\", "]", "^", "_", "`", "{", "|","}", "~"])
     
