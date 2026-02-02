@@ -1,0 +1,25 @@
+,,,,,,
+,Your Name:,Joseph,,**You fill in the yellow boxes. Your tester fills in the colored boxes by their name**,,
+,,,,,,
+,Tester 1:,Sister (Gale),,,,Changes made because of Tester 1:
+,What section where you assigned to test?,,,The add character function.,,Change 1: The add character function looks better
+,Did that part of the code all work as required?,,,"Yes all the parts worked, but it didn't look that great",,Change 2: Attributes and Skills are actual options now
+,Did you encounter any bugs or errors?,,,"No, bugs or errors, just formatting.",,Change 3
+,Was the program easy for you to use?,,,It took a bit of explaining to know what's actually happening and how to control it.,,
+,What would you change to make it better?,,,Change it so that it looked better (formatting) and explained better by the program.,,
+,,,,,,
+,Tester 2:,Mom,,,,Changes made because of Tester 2:
+,What section where you assigned to test?,,,The search function,,Change 1: Selected character is saved now
+,Did that part of the code all work as required?,,,"No, it didn't save the option that I chose",,Change 2: All the inputs are explained
+,Did you encounter any bugs or errors?,,,"No, I didn't encounter any bugs or errors but it didn't save",,Change 3
+,Was the program easy for you to use?,,,"Not really, it took quite a lot of explaining on what was happening",,
+,What would you change to make it better?,,,Better explain what's actually happening,,
+,,,,,,
+,Full Tester:,Dad,,,,Changes made because of Full Tester:
+,Is it clear what the program is supposed to do?,,,"Yes, it's supposed to be a program the let's you add, edit, remove, stuff with characters.",,Change 1: Inventory manager
+,Did you have to ask for help to figure out how to make it work?,,,"Yes, mostly because of the controls, because they weren't explained in the output.",,Change 2: Attribute manager
+,What was your favoite part of the program?,,,Adding a character.,,Change 3: Better explanations
+,Did the program work?,,,"Most of it did, though a few options did softlock or just crash.",,
+,Did you encounter any bugs/errors,,,Yes. The inventory manager and attribute manager especially just didn't work.,,
+,Please describe each bug/error you encountered:,,,"Inventory manager would softlock you on the choosing screen, choosing manage attributes gave an error, compare function didn't actually show anything after searching, and search function never actually selected a character.",,
+,What could be changed to make the program better?,,,"Fix all the erros and bugs, make it look better, explain what's happening, etc.",,
